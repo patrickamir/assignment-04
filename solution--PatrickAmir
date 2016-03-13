@@ -1,0 +1,130 @@
+//
+//  main.cpp
+//  assignment 3
+//
+//  Created by Patrick Amirbehboody (amir.patrick33@csu.fullerton.edu)
+//  Copyright © 2016 Patrick Amirbehboody. All rights reserved.
+// Assignment 3 recursion Part 4
+
+
+
+#include <iostream>
+#include <cmath>
+using std::cout;
+using std::endl;
+using std::cin;
+
+int gcd_iter(int a, int b)
+{
+    
+    	if (b < 0)
+        		b = abs(b);
+        	if (a < 0)
+            	a = abs(a);
+    
+            	if (b == 0)
+                		return abs(a);
+                	if (a == 0)
+                    		return abs(b);
+                    	if (a > b)
+                        		return gcd_iter(a - b, b);
+    
+                        	return gcd_iter(a, b - a);
+                        }
+
+int main()
+{
+    cout << gcd_iter(5 , 15) << endl;
+    	return 0;
+    }
+    
+
+    int fib_inter(int n)
+    {
+        
+        	if (n < 1)
+            		throw n;
+        	// Base case
+        	if (n == 1)
+            		return 1;
+        	if (n == 2)
+            		return 1;
+        
+        	return fib_inter(n - 1) + fib_inter(n - 2);
+        }
+    
+
+    int fibonacci()
+    {
+        	for (int i = 0; i <= 15; i++)
+            	{
+                		try {
+                    			cout << fib_inter(i) << endl;
+                    		}
+                		catch(int n)
+                		{
+                    			cout << n << " is an invalid integer ";
+                    		}
+                	}
+        	return 0;
+      }
+    
+
+    int pow_inter(int a, int p)
+    {
+        
+        	if (p < 0)
+            		throw ;
+        
+        	if (p == 0)
+            		return 1;
+        	if (p == 1)
+        		return a;
+        
+        	return a * pow_inter(a, p - 1);
+        }
+    
+    int power()
+    {
+        	try {
+            		cout << pow_inter(2, -5) << endl;
+            	}
+        	catch (int p)
+        	{
+            		cout << p<< " is an invalid integer";
+            	}
+        	return 0;
+        }
+
+
+    int tri_inter(int n)
+    {
+        
+        	if (n < 0)
+            		throw n;
+        
+        	if (n == 0)
+            		return 0;
+        
+        	return n + tri_inter(n - 1);
+        
+        }
+    int tri()
+    {
+        
+        
+        	for (int i = 0; i <= 3; i++)
+            	{
+                		try
+                		{
+                    			cout << tri_inter(i) << endl;
+                    		}
+                		catch (int n)
+                		{
+                    			cout << n << " is an invalid integer";
+                    		}
+                	}
+        
+            return 0;
+    }
+
